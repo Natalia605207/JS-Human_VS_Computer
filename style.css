@@ -21,7 +21,7 @@ body {
     border-radius: 5px;
 }
 
-.heading-top {
+#heading-top {
     font-family: 'Press Start 2P', cursive;
     font-size: 25px;
     text-align: center;
@@ -48,22 +48,59 @@ h3 {
 }
 
 #btn {
-    background: linear-gradient(to left, #0014FF, #ab24dc);
     font-family: 'Encode Sans', sans-serif;
-    font-size: 25px;
-    font-weight: bolder;
-    color: #fff;
-    padding: 10px 40px;
+    text-decoration: none;
+    position: relative;
     border: none;
+    font-size: 25px;
+    font-family: inherit;
+    cursor: pointer;
+    color: #fff;
+    width: 6em;
+    height: 1.7em;
+    text-align: center;
+    background: linear-gradient(90deg, #0014FF, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 300%;
     border-radius: 5px;
-    box-shadow: 2px 2px 6px black;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    transition: all 0.3s ease-in-out;
+    z-index: 1;
+    margin: 10px 0px 20px;
 }
 
 #btn:hover {
-    transform: scale(1.05);
+    animation: ani 8s linear infinite;
+    border: none;
+}
+
+@keyframes ani {
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 400%;
+    }
+}
+
+#btn:before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #0014FF, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+#btn:hover::before {
+    filter: blur(20px);
+}
+
+#btn:active {
+    background: linear-gradient(32deg, #0014FF, #f441a5, #ffeb3b, #03a9f4);
 }
 
 @media all and (max-width: 540px) {
@@ -78,11 +115,7 @@ h3 {
         margin-left: 0px;
     }
 
-    .heading-top {
-        font-size: 20px;
-    }
-
-    h3, #btn {
+    #heading-top, h3, #btn {
         font-size: 20px;
     }
 

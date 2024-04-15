@@ -1,3 +1,18 @@
+let sentence = "HUMAN VS COMPUTER";
+let i = 0;
+let speed = 120;
+
+function type() {
+    if (i < sentence.length) {
+        document.querySelector('#heading-top').textContent += sentence.charAt(i);
+        i++;
+
+        setTimeout(type, speed);
+    }
+}
+
+type();
+
 const input = document.querySelector('#guess');
 const button = document.querySelector('#btn');
 const answer = Math.floor(Math.random() * 30) + 1;
